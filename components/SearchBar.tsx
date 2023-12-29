@@ -12,10 +12,11 @@ export default function SearchBar ({ getMovies }) {
   return (
     <View style={styles.container}>
       <Searchbar 
+        elevation={1}
         placeholder="Search" 
         onChangeText={onChangeText}
         value={query}
-        onIconPress={() => getMovies(query.trim())}
+        onSubmitEditing={() => getMovies(query.trim())}
        />
     </View>
   )

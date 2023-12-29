@@ -14,9 +14,6 @@ export default function Poster ({ source }){
     )
 }
 
-    
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 0.6,

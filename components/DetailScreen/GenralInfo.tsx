@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import {StyleSheet, ScrollView, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+
+// Expo
 import { Image } from 'expo-image';
-import {
-  Surface,
-  Text,
-} from 'react-native-paper';
 
-import infoButtons from './InfoButtons'
+// react-native-paper
+import { Surface, Text } from 'react-native-paper';
 
-function GeneralInfo () {
+// my-own-components
+import { InfoButtons }  from './InfoButtons'
+import { Genre } from './Genre'
+
+export default function GeneralInfo ({ info }) {
+  console.log(info)
   return (
-    <Surface style={styles.container}>
-      <Text style={{ paddingLeft: 2}} variant="labelMedium">Movie</Text>
-      <Text variant="headlineLarge">Batman</Text>
-      <Genre style={{ marginTop: 10}} />
-      <InfoButtons style={{ marginTop: 20}} />
-    </Surface>
+    <View style={styles.container}>
+      <Text variant="displaySmall">{info.title}</Text>
+      <Text style={{ paddingLeft: 2}} variant="labelMedium">{info.type}</Text>
+      <Genre genres={info.genre} style={{ marginTop: 5}} />
+      <InfoButtons info={info.infoButtons}  style={{ marginTop: 15}} />
+    </View>
   )
 
 }
@@ -23,7 +26,6 @@ function GeneralInfo () {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
       padding: 4,
     },
 });

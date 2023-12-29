@@ -7,12 +7,9 @@ import {
   PaperProvider,
   BottomNavigation,
   MD3LightTheme,
-  Text,
-  Button,
 } from 'react-native-paper';
 
 import BottomTabNavigation from './components/BottomTabNavigation'
-
 
 const Tab = createBottomTabNavigator();
 

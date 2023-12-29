@@ -11,7 +11,7 @@ export default function MovieContent ({ obj, navigation }) {
       <View  style={styles.container}>
         <MovieTitle title={obj.movieTitle} />
         <MovieInfo info={obj} />
-        <MoreInfoButton navigation={navigation} movieId={obj.id} />
+        <MoreInfoButton navigation={navigation} movieTitle={obj.movieTitle} movieId={obj.id} />
       </View>
   )
 

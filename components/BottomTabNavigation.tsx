@@ -14,10 +14,8 @@ export default function BottomTabNavigation() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarStyle: {height: 100, backgroundColor: 'black'}
       }}
-
-
+      initialRouteName="Settings"
       tabBar={({ navigation, state, descriptors, insets }) => (
 
         <BottomNavigation.Bar

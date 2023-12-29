@@ -1,19 +1,18 @@
 import axios from "axios"
 import { resolveModuleName } from "typescript"
 
-const baseUrl:string = 'http://www.omdbapi.com/'
-
+const baseURL:string = 'http://www.omdbapi.com/'
 
 export default async function search(query:string) {
+
   const params:object = {
     s: query,
     type: 'movie',
-    apikey: 16557923
-
+    apikey: 16557923,
   }
 
   const response = await axios({
-    baseURL: baseUrl,
+    baseURL: baseURL,
     params: params,
   })
 
@@ -39,11 +38,16 @@ function transformResponse(data:object) {
   }));
 }
 
-export async function searchById(id) {
-  // Fetch movie Details form baseURL
 
-  const parmas = {
+export async function getMovie(id) {
+  /* Fetch movie Details form baseURL 
+   and transform the response into 
+   different structure */
+
+  const params = {
+    apikey: 16557923,
     i: id,
+    plot: 'full'
   }
 
   const response = await axios({
@@ -51,9 +55,32 @@ export async function searchById(id) {
     params: params
   })
 
-  return response
+  return transformMovie(response.data)
 
 }
+
+const transformMovie = (data) => ({
+    poster: data['Poster'],
+    general: {
+      title: data['Title'],
+      type: data["Type"],
+      genre: data['Genre'].split(','),
+      infoButtons: {
+        rated: data['Rated'] ,
+        released: data['Released'] ,
+        runtime: data['Runtime'],
+      }
+    },
+    rating: {
+      score: data['imdbRating'],
+      votes: data['imdbVotes'],
+    },
+
+    story: data['Plot'],
+
+    actors : data['Actors'].split(',')
+
+  }) 
 
 class NOT_FOUND extends Error {
   constructor(message:string) {
