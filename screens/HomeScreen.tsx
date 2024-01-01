@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator()
 export default function HomeScreen( { route, navigation }) {
   const theme = useTheme()
   return (
-    <Stack.Navigator initialRouteName="Search" >
+    <Stack.Navigator initialRouteName="Home" >
       <Stack.Screen options={{ headerShown: false}} name="Search" component={SearchScreen} />
       <Stack.Screen name="Detail" component={DetailScreen} options={{
         headerStyle: {
