@@ -1,6 +1,5 @@
 import { StyleSheet, View } from "react-native";
 import { useTheme, Surface, Text, Button } from "react-native-paper";
-import { HeadLine } from "./HeadLine";
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faImdb } from '@fortawesome/free-brands-svg-icons'

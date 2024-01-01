@@ -1,20 +1,11 @@
 import React, { useState } from 'react';
 import {StyleSheet, View} from 'react-native';
 import Constants from 'expo-constants'
-import {
-  Searchbar,
-  Surface,
-  Text,
-  ActivityIndicator, 
-} from 'react-native-paper';
+import { ActivityIndicator } from 'react-native-paper';
 
-import MovieCard from '../components/MovieCard'
 import SearchBar from '../components/SearchBar'
 import MovieList from '../components/MovieList'
 import Alert from '../components/Alert'
-//import PlaceHolder from '../components/PlaceHolder'
-
-
 import search from '../utils/ajax'
 
 export default function SearchScreen( { route, navigation }) {

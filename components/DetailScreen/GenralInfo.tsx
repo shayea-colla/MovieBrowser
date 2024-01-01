@@ -1,10 +1,8 @@
 import {StyleSheet, View} from 'react-native';
 
-// Expo
-import { Image } from 'expo-image';
 
 // react-native-paper
-import { Surface, Text } from 'react-native-paper';
+import { Text } from 'react-native-paper';
 
 // my-own-components
 import { InfoButtons }  from './InfoButtons'

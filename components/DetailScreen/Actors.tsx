@@ -1,5 +1,4 @@
 import {StyleSheet, View} from 'react-native';
-import { Surface } from 'react-native-paper';
 
 import { HeadLine } from './HeadLine'
 import { ActorsList } from './ActorsList'

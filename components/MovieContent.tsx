@@ -2,7 +2,6 @@ import {StyleSheet, View} from 'react-native';
 import MovieTitle from './MovieTitle'
 import MovieInfo from './MovieInfo'
 import MoreInfoButton from './MoreInfoButton'
-import Poster from './MoviePoster'
 
 
 

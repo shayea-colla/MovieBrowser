@@ -26,6 +26,7 @@
     "axios": "^1.6.2",
     "expo": "~49.0.15",
     "expo-constants": "~14.4.2",
+    "expo-dev-client": "~2.4.12",
     "expo-doctor": "latest",
     "expo-image": "~1.3.5",
     "expo-status-bar": "~1.6.0",

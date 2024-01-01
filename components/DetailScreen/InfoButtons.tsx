@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import { Surface, Text, Button } from "react-native-paper";
+import { Button } from "react-native-paper";
 
 export function InfoButtons({ style, info }) {
   return (

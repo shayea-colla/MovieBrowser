@@ -6,18 +6,40 @@ import {
   RatingInfo,
   Story,
   Actors,
-  Teams,
 } from "../components/DetailScreen";
 import { ActivityIndicator } from 'react-native-paper';
 
 import { getMovie } from '../utils/ajax'
 
-const movie = {
-};
+type infoButtons = {
+  rated: string;
+  released: string;
+  runtime: string;
+}
+
+type generalInfo = {
+  title: string;
+  type: string;
+  genre: string[];
+  infoButtons: infoButtons;
+}
+
+type rating = {
+  score: string;
+  votes: string;
+}
+
+type movie = {
+  poster: string;
+  general: generalInfo;
+  rating: rating;
+  story: string;
+  actors: string[];
+}
 
 export default function DetailScreen({ route, navigation }) {
   const [isReady, setIsReady] = useState(false);
-  const [movie, setMovie] = useState({})
+  const [movie, setMovie] = useState<movie>()
 
   useEffect(() => {
     // Set the header title before fetchin any data

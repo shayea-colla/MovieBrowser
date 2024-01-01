@@ -1,5 +1,5 @@
 import {StyleSheet, View} from 'react-native';
-import { Text, Divider } from 'react-native-paper';
+import { Text } from 'react-native-paper';
 import { HeadLine } from './HeadLine'
 
 export default function Story ({ story }) {

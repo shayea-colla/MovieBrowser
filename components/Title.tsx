@@ -3,7 +3,7 @@ import { Text } from 'react-native-paper';
 export default function Title ({ title, content }) { 
   return (
         <View style={styles.container}>
-          <Text style={{ marginRight: 3 , fontWeight: 700 }} variant='bodyMedium' >
+          <Text variant='bodyMedium' >
             {title}:
           </Text>
           <Text  variant="bodySmall">
@@ -18,4 +18,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     },
+    textStyle: { 
+      marginRight: 3 , 
+      fontWeight: 700 
+    }
+
+    
 }); 

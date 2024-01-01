@@ -1,11 +1,5 @@
-import {StyleSheet, View} from 'react-native';
-import { Image } from 'expo-image';
-import {
-  Surface,
-  Text,
-  Button,
-  Divider,
-} from 'react-native-paper';
+import {StyleSheet} from 'react-native';
+import { Surface } from 'react-native-paper';
 
 import MovieContent from './MovieContent'
 import Poster from './MoviePoster'

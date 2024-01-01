@@ -59,7 +59,7 @@ export async function getMovie(id) {
 
 }
 
-const transformMovie = (data) => ({
+const transformMovie = (data:object) => ({
     poster: data['Poster'],
     general: {
       title: data['Title'],

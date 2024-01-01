@@ -1,14 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { 
-  Text,
-  Surface,
-  Divider,
-  useTheme,
-} from 'react-native-paper';
+import { Text, useTheme } from 'react-native-paper';
 
 import Constants from 'expo-constants'
-import { ThemePicker } from '../components/SettingScreen'
 
 export default function SettingScreen({ route }) {
   const theme = useTheme()
