@@ -1,7 +1,7 @@
 import axios from "axios"
 import { resolveModuleName } from "typescript"
 
-const baseURL:string = 'http://www.omdbapi.com/'
+const baseURL:string = 'https://www.omdbapi.com/'
 
 export default async function search(query:string) {
 

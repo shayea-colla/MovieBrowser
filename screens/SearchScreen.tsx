@@ -19,14 +19,14 @@ export default function SearchScreen( { route, navigation }) {
   const getMovies = async (query:string) => {
     setIsSearching(true)
 
-//    try {
+    try {
       const data = await search(query)
       setData(data)
 
- //   } catch (e) {
-  //    handleError(e)
+    } catch (e) {
+      handleError(e)
 
-   // }
+    }
 
     setIsSearching(false)
 
