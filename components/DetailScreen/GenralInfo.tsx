@@ -11,7 +11,6 @@ import { InfoButtons }  from './InfoButtons'
 import { Genre } from './Genre'
 
 export default function GeneralInfo ({ info }) {
-  console.log(info)
   return (
     <View style={styles.container}>
       <Text variant="displaySmall">{info.title}</Text>

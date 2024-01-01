@@ -6,7 +6,6 @@ import {
   Surface,
   Text,
   ActivityIndicator, 
-  MD2Colors,
 } from 'react-native-paper';
 
 import MovieCard from '../components/MovieCard'
@@ -63,7 +62,7 @@ export default function SearchScreen( { route, navigation }) {
       <View style={styles.content}>
         {
           isSearching 
-          ? <ActivityIndicator style={{ flex: 1 }} size="small"  animating={isSearching} color={MD2Colors['primary']} />
+          ? <ActivityIndicator style={{ flex: 1 }} size="small"  animating={isSearching}/>
           : <MovieList data={data} navigation={navigation} route={route} />
 //          : data 
 //          ? <PlaceHolder type="search" />
