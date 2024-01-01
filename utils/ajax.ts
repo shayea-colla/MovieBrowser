@@ -16,6 +16,8 @@ export default async function search(query:string) {
     params: params,
   })
 
+  console.log(response)
+
   if (response.data['Response'] === "True") {
     return transformResponse(response.data)
   }
@@ -54,6 +56,7 @@ export async function getMovie(id) {
     baseURL: baseURL ,
     params: params
   })
+
 
   return transformMovie(response.data)
 
