@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, ScrollView, View } from "react-native";
+import { StyleSheet, ScrollView, View, StatusBar } from "react-native";
 import {
   Poster,
   GeneralInfo,
@@ -64,6 +64,7 @@ export default function DetailScreen({ route, navigation }) {
           <Story story={movie.story} />
           <Actors actors={movie.actors} />
         </View>
+          <StatusBar />
       </ScrollView>
     );
 

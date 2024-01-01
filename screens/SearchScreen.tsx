@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, StatusBar} from 'react-native';
 import Constants from 'expo-constants'
 import { ActivityIndicator } from 'react-native-paper';
 
@@ -61,6 +61,7 @@ export default function SearchScreen( { route, navigation }) {
       </View>
 
       <Alert title={alertTitle} visible={alertVisible} message={alertMessage} setVisible={setAlertVisible} />
+        <StatusBar />
 
     </View>
   );

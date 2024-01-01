@@ -7,6 +7,7 @@ import {
   PaperProvider,
   BottomNavigation,
   MD3LightTheme,
+  useTheme,
 } from 'react-native-paper';
 
 import BottomTabNavigation from './components/BottomTabNavigation'
@@ -16,10 +17,13 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
 
+    const theme = useTheme()
+
   return (
     <PaperProvider theme={MD3LightTheme}>
         <NavigationContainer>
             <BottomTabNavigation />
+            <StatusBar backgroundColor={theme.colors.primary} />
         </NavigationContainer>
     </PaperProvider>
   );
