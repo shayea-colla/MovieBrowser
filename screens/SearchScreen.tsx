@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import {StyleSheet, View, StatusBar} from 'react-native';
 import Constants from 'expo-constants'
 import { ActivityIndicator } from 'react-native-paper';
-
 import SearchBar from '../components/SearchBar'
 import MovieList from '../components/MovieList'
 import Alert from '../components/Alert'
 import search from '../utils/ajax'
+
 
 export default function SearchScreen( { route, navigation }) {
   const [data, setData] = useState([])

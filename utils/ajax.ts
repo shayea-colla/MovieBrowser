@@ -16,8 +16,6 @@ export default async function search(query:string) {
     params: params,
   })
 
-  console.log(response)
-
   if (response.data['Response'] === "True") {
     return transformResponse(response.data)
   }
@@ -25,8 +23,6 @@ export default async function search(query:string) {
   throw new NOT_FOUND(`No results found for "${query}"`)
     
 }
-
-
 
 function transformResponse(data:object) {
 

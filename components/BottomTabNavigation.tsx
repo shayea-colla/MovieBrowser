@@ -15,7 +15,7 @@ export default function BottomTabNavigation() {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName="Settings"
+      initialRouteName="Home"
       tabBar={({ navigation, state, descriptors, insets }) => (
 
         <BottomNavigation.Bar
