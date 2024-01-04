@@ -7,35 +7,9 @@ import Constants from 'expo-constants'
 
 export default function SettingScreen({ route }) {
   const theme = useTheme()
-  const [text, setText] = useState('')
-  const [response, setResponse] = useState('')
-
-  const fetchResponse = async () => {
-    try {
-      
-      const res = await search(text)
-      setResponse(JSON.stringify(res, null, 2))
-    } catch (error) {
-      const res = error
-      setResponse(JSON.stringify(res, null, 2))
-    }
-
-  }
-
   return (
     <View style={styles.container}>
-      <TextInput style={{ width: '90%',}} label="search" value={text} onChangeText={text => setText(text) } ></TextInput>
-        <View style={{ flexDirection: 'row', gap: 20}}>
-          <Button mode="elevated" onPress={fetchResponse} >fetch</Button>
-          <Button mode="elevated" onPress={()=> setResponse('')}>clear</Button>
-
-        </View>
-        <Surface style={styles.textContainer}>
-          <ScrollView>
-                <Text>{response}</Text>
-          </ScrollView>
-        </Surface>
-      
+        <Text variant='displayMedium' style={{ color: theme.colors.primary}}>coming soon!</Text>
     </View>
   );
 }

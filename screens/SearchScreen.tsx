@@ -48,7 +48,7 @@ export default function SearchScreen( { route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <SearchBar getMovies={getMovies} />
+      <SearchBar setData={setData} getMovies={getMovies} />
 
       <View style={styles.content}>
         {

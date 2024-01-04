@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import { Searchbar } from 'react-native-paper';
 
 
-export default function SearchBar ({ getMovies }) {
+export default function SearchBar ({ getMovies, setData }) {
 
   const [query, setQuery] = useState('');
 
@@ -16,8 +16,11 @@ export default function SearchBar ({ getMovies }) {
         placeholder="Search" 
         onChangeText={onChangeText}
         value={query}
+          // Clear the data when clear button pressed
+          onClearIconPress={() => setData([])}
         onIconPress={() => getMovies(query.trim())}
         onSubmitEditing={() => getMovies(query.trim())}
+
        />
     </View>
   )
