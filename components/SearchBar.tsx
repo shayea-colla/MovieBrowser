@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import { Searchbar } from 'react-native-paper';
 
 
-export default function SearchBar ({ getMovies, setData }) {
+export default function SearchBar ({ setIsSearching, getMovies, setData }) {
 
   const [query, setQuery] = useState('');
 
@@ -17,7 +17,13 @@ export default function SearchBar ({ getMovies, setData }) {
         onChangeText={onChangeText}
         value={query}
           // Clear the data when clear button pressed
-          onClearIconPress={() => setData([])}
+          onClearIconPress={() => {
+              // empty the movie list
+              setData([])
+              // set is searching to false to remove loading indicator
+              setIsSearching(false)
+
+          }}
         onIconPress={() => getMovies(query.trim())}
         onSubmitEditing={() => getMovies(query.trim())}
 

@@ -1,36 +1,44 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { 
-  Text,
   Surface,
   Divider,
   useTheme,
+  Button,
+  Menu,
 } from 'react-native-paper';
 
-export default function ThemePicker () {
+export default function ThemePicker ({ setDarkTheme }) {
+  const [visible, setVisible] = useState(false)
 
-  const theme = useTheme()
+  const openMenu = () => setVisible(true)
+  const closeMenu = () => setVisible(false)
 
   return (
-    <Surface style={styles.container}>
-      <View style={styles.themeItem}>
-        <Text>color</Text>
+      <View style={styles.container}>
+        <Menu 
+          visible={visible}
+          onDismiss={closeMenu}
+          anchor={<Button mode='elevated' onPress={openMenu}>appearance</Button>}>
+            <Menu.Item onPress={() => {
+                setDarkTheme(true)
+                AsyncStorage.setItem('darkTheme', 'true')
+              }} title="Dark"/>
+            <Divider bold />
+            <Menu.Item onPress={() => {
+                setDarkTheme(false)
+                AsyncStorage.setItem('darkTheme', 'false')
+
+              }} title="Light"/>
+          </Menu>
       </View>
-      <Divider bold style={{ borderWidth: 1, borderColor: theme.colors.tertiary}} />
-      <View style={styles.themeItem}>
-        <Text>color</Text>
-      </View>
-      <Divider bold style={{ borderWidth: 1, borderColor: theme.colors.tertiary}} />
-      <View style={styles.themeItem}>
-        <Text>color</Text>
-      </View>
-    </Surface>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: '90%',
-    borderRadius: 20,
+    width: '50%',
   },
   themeItem: {
     margin: 20,

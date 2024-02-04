@@ -5,7 +5,7 @@ import { CardStyleInterpolators } from '@react-navigation/stack';
 import SearchScreen from './SearchScreen'
 import DetailScreen from './DetailScreen'
 
-import { Text, useTheme } from 'react-native-paper'
+import { useTheme } from 'react-native-paper'
 
 const Stack = createNativeStackNavigator()
 
@@ -16,17 +16,17 @@ export default function HomeScreen( { route, navigation }) {
     <Stack.Navigator initialRouteName="Home" >
       <Stack.Group>
         <Stack.Screen options={{ headerShown: false}} name="Search" component={SearchScreen} />
-
       </Stack.Group>
       <Stack.Group>
         <Stack.Screen name="Detail" component={DetailScreen} options={{
-          headerTitle: (props) => (
-            <Text 
-            numberOfLines={2}
-              ellipsizeMode='tail'
-              style={{ fontSize: 18, textAlign: 'center', width: '80%', overflow:'hidden'}}
-              >{props.children}</Text>
-          ),
+        //  headerTitle: (props) => (
+        //    <Text 
+        //    numberOfLines={2}
+        //      ellipsizeMode='tail'
+        //      style={{ fontSize: 18, textAlign: 'center', width: '80%', overflow:'hidden'}}
+        //      >{props.children}</Text>
+        //  ),
+
           presentation: 'modal',
 
           headerStyle: {
@@ -38,6 +38,4 @@ export default function HomeScreen( { route, navigation }) {
     </Stack.Navigator>
   )
 }
-
-
 

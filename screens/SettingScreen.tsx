@@ -1,30 +1,31 @@
 import React, {useState} from 'react';
 import { View,ScrollView, StyleSheet } from 'react-native';
 import {Button, Surface, Text, TextInput, useTheme } from 'react-native-paper';
-import  search  from '../utils/ajax'
+import { ThemePicker } from '../components/SettingScreen';
 
 import Constants from 'expo-constants'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function SettingScreen({ route }) {
+
+export default function SettingScreen({ route, setDarkTheme }) {
   const theme = useTheme()
   return (
-    <View style={styles.container}>
-        <Text variant='displayMedium' style={{ color: theme.colors.primary}}>coming soon!</Text>
+    <View style={[  styles.container, {backgroundColor: theme.colors.background}]}>
+        <ThemePicker setDarkTheme={setDarkTheme} />
     </View>
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center',
     marginTop: Constants.statusBarHeight,
+ //   backgroundColor: theme.colors.background,
   },
   textContainer: {
-      marign: 20,
-      height: 500,
-      width: 350,
-      padding: 19,
+    marginBottom: 20,
   }
 });

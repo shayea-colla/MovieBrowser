@@ -7,7 +7,7 @@ import {
   Story,
   Actors,
 } from "../components/DetailScreen";
-import { ActivityIndicator } from 'react-native-paper';
+import { ActivityIndicator, useTheme } from 'react-native-paper';
 
 import { getMovie } from '../utils/ajax'
 
@@ -41,6 +41,8 @@ export default function DetailScreen({ route, navigation }) {
   const [isReady, setIsReady] = useState(false);
   const [movie, setMovie] = useState<movie>()
 
+  const theme  = useTheme()
+
   useEffect(() => {
     // Set the header title before fetchin any data
     navigation.setOptions({
@@ -54,25 +56,28 @@ export default function DetailScreen({ route, navigation }) {
 
   }, [route.params.id])
 
-  if (isReady) {
-    return (
-      <ScrollView overScrollMode="never" showsVerticalScrollIndicator={false}>
-        <View style={styles.container}>
-          <Poster poster={movie.poster} />
-          <GeneralInfo info={movie.general} />
-          <RatingInfo info={movie.rating} />
-          <Story story={movie.story} />
-          <Actors actors={movie.actors} />
-        </View>
-          <StatusBar />
-      </ScrollView>
-    );
+  return (
+        <ScrollView 
+            style={{backgroundColor: theme.colors.background}} 
+            overScrollMode="never" 
+            showsVerticalScrollIndicator={false}
+        >
+        {
+            isReady 
+            ?  <View style={styles.container}>
+                  <Poster poster={movie.poster} />
+                  <GeneralInfo info={movie.general} />
+                  <RatingInfo info={movie.rating} />
+                  <Story story={movie.story} />
+                  <Actors actors={movie.actors} />
+                </View>
 
-  } else {
-    return (
-      <ActivityIndicator style={styles.loading} animating />
-    )
-  }
+            : <ActivityIndicator style={styles.loading} animating />
+        }
+
+        </ScrollView>
+  )
+
 }
 
 const styles = StyleSheet.create({
@@ -92,12 +97,3 @@ const styles = StyleSheet.create({
   }
 });
 
-//const M = {
-//  // Detailed Info
-//  Director: "Tim Burton",
-//  Writer: "Bob Kane, Sam Hamm, Warren Skaaren",
-//  Language: "English, French, Spanish",
-//  Country: "United States, United Kingdom",
-//  Awards: "Won 1 Oscar. 10 wins & 28 nominations total",
-//  imdbID: "tt0096895",
-//};

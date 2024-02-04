@@ -1,28 +1,45 @@
+import { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import {StyleSheet, View} from 'react-native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   PaperProvider,
   BottomNavigation,
   MD3LightTheme,
   useTheme,
+  MD2DarkTheme,
+  MD3DarkTheme,
 } from 'react-native-paper';
 
 import BottomTabNavigation from './components/BottomTabNavigation'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Tab = createBottomTabNavigator();
 
 
 export default function App() {
+  const [darkTheme, setDarkTheme] = useState(false)
+  const theme = darkTheme ? MD3DarkTheme: MD3LightTheme;
 
-    const theme = useTheme()
+  const getTheme = async () => {
+    try {
+      const item = await AsyncStorage.getItem('darkTheme')
+      if (item === 'true') {
+        setDarkTheme(true)
+      }
+    } catch (error) {
+      alert("couldn't set the theme")
+    }
+
+  }
+
+  getTheme()
 
   return (
-    <PaperProvider theme={MD3LightTheme}>
+    <PaperProvider theme={theme}>
         <NavigationContainer>
-            <BottomTabNavigation />
+            <BottomTabNavigation setDarkTheme={setDarkTheme} />
             <StatusBar backgroundColor={theme.colors.primary} />
         </NavigationContainer>
     </PaperProvider>
@@ -36,7 +53,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
-    backgroundColor: '#282828'
   },
 });
 

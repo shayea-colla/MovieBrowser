@@ -9,7 +9,7 @@ import SettingScreen from  '../screens/SettingScreen'
 
 const Tab = createBottomTabNavigator();
 
-export default function BottomTabNavigation() {
+export default function BottomTabNavigation({ setDarkTheme }) {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -72,10 +72,9 @@ export default function BottomTabNavigation() {
         }}
       />
       <Tab.Screen
-
         name="Settings"
 
-        component={SettingScreen}
+        component={({route}) => <SettingScreen route={route} setDarkTheme={setDarkTheme} />}
 
         options={{
 
